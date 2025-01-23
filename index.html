@@ -15,8 +15,9 @@
         .navbar {
             background-color: #343a40;
         }
-        .recipe-section {
-            display: none;
+        /* Change text color to black in the hero section */
+        .hero .text-center h2, .hero .text-center p {
+            color: black;
         }
     </style>
 </head>
@@ -41,10 +42,10 @@
                         Recipes
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#" onclick="showRecipe('pasta-recipe')">Delicious Pasta</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="showRecipe('tiffins-recipe')">Tiffins</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="showRecipe('pancake-recipe')">Homemade Pancakes</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="showRecipe('biryani-recipe')">Biryani</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#pastaModal">Delicious Pasta</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#tiffinsModal">Tiffins</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#pancakeModal">Homemade Pancakes</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#biryaniModal">Biryani</a></li>
                     </ul>
                 </li>
             </ul>
@@ -76,7 +77,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Delicious Pasta</h5>
                     <p class="card-text">Learn how to make a quick and easy pasta dish perfect for any occasion.</p>
-                    <button class="btn btn-primary" onclick="showRecipe('pasta-recipe')">Read More</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pastaModal">Read More</button>
                 </div>
             </div>
         </div>
@@ -84,11 +85,11 @@
         <!-- Recipe 2: Tiffins -->
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDf_SF6O3wS_uyNSLh4cIaGAgMi4rhfvK-Lw&s" class="card-img-top" alt="Tiffins"> <!-- Replace with Tiffins image -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDf_SF6O3wS_uyNSLh4cIaGAgMi4rhfvK-Lw&s" class="card-img-top" alt="Tiffins">
                 <div class="card-body">
                     <h5 class="card-title">Tiffins</h5>
                     <p class="card-text">Tiffins are perfect for snacks or light meals. Learn how to prepare a variety of tasty tiffin recipes.</p>
-                    <button class="btn btn-primary" onclick="showRecipe('tiffins-recipe')">Read More</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tiffinsModal">Read More</button>
                 </div>
             </div>
         </div>
@@ -100,7 +101,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Homemade Pancakes</h5>
                     <p class="card-text">Whip up some fluffy pancakes with this easy-to-follow recipe.</p>
-                    <button class="btn btn-primary" onclick="showRecipe('pancake-recipe')">Read More</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pancakeModal">Read More</button>
                 </div>
             </div>
         </div>
@@ -112,110 +113,141 @@
                 <div class="card-body">
                     <h5 class="card-title">Biryani</h5>
                     <p class="card-text">Discover the rich flavors of biryani with this traditional recipe.</p>
-                    <button class="btn btn-primary" onclick="showRecipe('biryani-recipe')">Read More</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#biryaniModal">Read More</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Recipe Pages -->
-<div id="pasta-recipe" class="recipe-section container mt-5">
-    <h2 class="text-center">Delicious Pasta Recipe</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Ingredients</h3>
-            <ul>
-                <li>200g Pasta</li>
-                <li>1 tablespoon Olive Oil</li>
-                <li>2 cloves Garlic, minced</li>
-                <li>1 cup Tomato Sauce</li>
-                <li>Salt and Pepper to taste</li>
-            </ul>
-            <h3>Instructions</h3>
-            <ol>
-                <li>Boil pasta in salted water for 8-10 minutes until al dente.</li>
-                <li>In a pan, heat olive oil and sauté garlic until fragrant.</li>
-                <li>Add tomato sauce and season with salt and pepper. Simmer for 5 minutes.</li>
-                <li>Combine the pasta and sauce. Stir well and serve hot.</li>
-            </ol>
+<!-- Modal for Pasta Recipe -->
+<div class="modal fade" id="pastaModal" tabindex="-1" aria-labelledby="pastaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pastaModalLabel">Delicious Pasta Recipe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>200g Pasta</li>
+                    <li>1 tablespoon Olive Oil</li>
+                    <li>2 cloves Garlic, minced</li>
+                    <li>1 cup Tomato Sauce</li>
+                    <li>Salt and Pepper to taste</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Boil pasta in salted water for 8-10 minutes until al dente.</li>
+                    <li>In a pan, heat olive oil and sauté garlic until fragrant.</li>
+                    <li>Add tomato sauce and season with salt and pepper. Simmer for 5 minutes.</li>
+                    <li>Combine the pasta and sauce. Stir well and serve hot.</li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Recipe Pages for Tiffins -->
-<div id="tiffins-recipe" class="recipe-section container mt-5">
-    <h2 class="text-center">Tiffins Recipe</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Ingredients</h3>
-            <ul>
-                <li>1 cup Semolina (Rava)</li>
-                <li>1/2 cup Yogurt</li>
-                <li>1/4 cup Water</li>
-                <li>1 tablespoon Oil</li>
-                <li>1/2 teaspoon Mustard Seeds</li>
-                <li>1/4 teaspoon Turmeric Powder</li>
-                <li>Salt to taste</li>
-                <li>Chopped vegetables (Carrot, Beans, etc.)</li>
-            </ul>
-            <h3>Instructions</h3>
-            <ol>
-                <li>Heat oil in a pan, add mustard seeds and let them splutter.</li>
-                <li>Add turmeric powder and chopped vegetables. Cook for 5 minutes.</li>
-                <li>In a bowl, mix semolina, yogurt, and water to form a batter.</li>
-                <li>Pour the batter into the pan and cook for 10 minutes, stirring occasionally until it sets.</li>
-                <li>Serve hot with chutney or sambar.</li>
-            </ol>
+<!-- Modal for Tiffins Recipe -->
+<div class="modal fade" id="tiffinsModal" tabindex="-1" aria-labelledby="tiffinsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tiffinsModalLabel">Tiffins Recipe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>1 cup Semolina (Rava)</li>
+                    <li>1/2 cup Yogurt</li>
+                    <li>1/4 cup Water</li>
+                    <li>1 tablespoon Oil</li>
+                    <li>1/2 teaspoon Mustard Seeds</li>
+                    <li>1/4 teaspoon Turmeric Powder</li>
+                    <li>Salt to taste</li>
+                    <li>Chopped vegetables (Carrot, Beans, etc.)</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Heat oil in a pan, add mustard seeds and let them splutter.</li>
+                    <li>Add turmeric powder and chopped vegetables. Cook for 5 minutes.</li>
+                    <li>In a bowl, mix semolina, yogurt, and water to form a batter.</li>
+                    <li>Pour the batter into the pan and cook for 10 minutes, stirring occasionally until it sets.</li>
+                    <li>Serve hot with chutney or sambar.</li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- About Section -->
-<section id="about" class="container mt-5">
-    <h2 class="text-center">About Us</h2>
-    <p>Welcome to our food blog! Here, we share delicious recipes, tips, and cooking inspiration. Whether you're a beginner or an experienced cook, our blog has something for everyone!</p>
-</section>
+<!-- Modal for Pancake Recipe -->
+<div class="modal fade" id="pancakeModal" tabindex="-1" aria-labelledby="pancakeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pancakeModalLabel">Homemade Pancakes Recipe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>1 cup Flour</li>
+                    <li>1 tablespoon Sugar</li>
+                    <li>1 teaspoon Baking Powder</li>
+                    <li>1/2 teaspoon Salt</li>
+                    <li>1 cup Milk</li>
+                    <li>1 Egg</li>
+                    <li>2 tablespoons Melted Butter</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>In a bowl, mix flour, sugar, baking powder, and salt.</li>
+                    <li>In another bowl, whisk together milk, egg, and melted butter.</li>
+                    <li>Combine both mixtures and stir until smooth.</li>
+                    <li>Heat a pan and cook pancakes until golden brown on both sides.</li>
+                    <li>Serve with syrup, fruits, or your favorite toppings.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Contact Section -->
-<section id="contact" class="container mt-5">
-    <h2 class="text-center">Contact Us</h2>
-    <form>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+<!-- Modal for Biryani Recipe -->
+<div class="modal fade" id="biryaniModal" tabindex="-1" aria-labelledby="biryaniModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="biryaniModalLabel">Biryani Recipe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>2 cups Basmati Rice</li>
+                    <li>1/2 kg Chicken (or your preferred meat)</li>
+                    <li>1 Onion, sliced</li>
+                    <li>2 tomatoes, chopped</li>
+                    <li>1/4 cup Yogurt</li>
+                    <li>1/4 teaspoon Turmeric Powder</li>
+                    <li>1 teaspoon Garam Masala</li>
+                    <li>2 Bay Leaves</li>
+                    <li>2 Cinnamon Sticks</li>
+                    <li>2 Cloves</li>
+                    <li>Salt to taste</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Cook the rice until 70% done, set aside.</li>
+                    <li>In a large pan, sauté onions until golden brown.</li>
+                    <li>Add chicken and spices, cook until chicken is tender.</li>
+                    <li>Layer the rice on top of the chicken and let it cook for 20 minutes.</li>
+                    <li>Serve hot with raita or salad.</li>
+                </ol>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-        </div>
-        <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</section>
-
-<!-- Pagination Section (Page Links) -->
-<div class="container mt-5">
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <a class="page-link" href="https://www.tasteofhome.com/collection/fruit-salad-recipes/?srsltid=AfmBOoodWEOElepmWmdYUDHQ8VDT2eqWPwa6LdKTt8C9i5tRJqplbGIm" target="_blank" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="https://www.tasteofhome.com/collection/fruit-salad-recipes/?srsltid=AfmBOoodWEOElepmWmdYUDHQ8VDT2eqWPwa6LdKTt8C9i5tRJqplbGIm" target="_blank">1</a></li>
-            <li class="page-item"><a class="page-link" href="https://www.charcoaleats.com/post/different-state-different-taste-biryanis-of-india" target="_blank">2</a></li>
-            <li class="page-item"><a class="page-link" href="https://www.realsimple.com/food-recipes/shopping-storing/beverages/cool-beverages-sultry-day" target="_blank">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="https://www.realsimple.com/food-recipes/shopping-storing/beverages/cool-beverages-sultry-day" target="_blank" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    </div>
 </div>
 
 <!-- Footer -->
@@ -224,18 +256,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- JavaScript to show recipe on button click -->
-<script>
-    function showRecipe(recipeId) {
-        // Hide all recipe sections
-        const allRecipes = document.querySelectorAll('.recipe-section');
-        allRecipes.forEach(recipe => recipe.style.display = 'none');
-        
-        // Show the clicked recipe section
-        document.getElementById(recipeId).style.display = 'block';
-    }
-</script>
 
 </body>
 </html>
